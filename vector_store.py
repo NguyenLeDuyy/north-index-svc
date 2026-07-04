@@ -78,7 +78,7 @@ def upload_file(client: genai.Client, store_name: str, path: Path, is_update: bo
     operation = client.file_search_stores.upload_to_file_search_store(
         file=str(path),
         file_search_store_name=store_name,
-        config={"display_name": display_name},
+        config={"display_name": display_name, "mime_type": "text/markdown"},
     )
     # upload_to_file_search_store returns a long-running operation; wait for it
     while not operation.done:
